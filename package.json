@@ -1,17 +1,40 @@
 {
-  "name": "royshowcase",
+  "name": "fancy-component-showcase",
+  "description": "Just some fancy components I've build or stolen from codepen and converted to be a react typescript component with extreme flexibility in the form of props so you can use them in your own projects.",
+  "url": "https://components.remcostoeten.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/remcostoeten/fancy-component-showcase"
+  },
+  "author": {
+    "name": "Remco Stoeten",
+    "github": "https://github.com/remcostoeten",
+    "linkedin": "https://www.linkedin.com/in/remcostoeten/"
+  },
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
+    "dev-regular": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+    "format": "next lint --fix && prettier '**/*.{json,yaml}' --write --ignore-path .gitignore",
+    "typecheck": "tsc --noEmit --pretty",
+    "commit": "git add * ; cz",
+    "push": "git add * ; cz ;git push"
   },
   "dependencies": {
+    "@snigos/color": "^3.0.0",
+    "color": "^4.2.3",
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.12.5",
+    "install": "^0.13.0",
+    "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-icons": "^5.2.1"
   },
   "devDependencies": {
     "typescript": "^5",
@@ -21,6 +44,12 @@
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "eslint": "^8",
+    "@commitlint/cz-commitlint": "^19.2.0",
     "eslint-config-next": "14.2.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
