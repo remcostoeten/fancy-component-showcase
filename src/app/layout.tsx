@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { ReactNode } from "react";
+import { Toaster } from "sonner";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Fancy component showcase",
-  description: "Showcase and storage for easily reusable components which I plan on using in the future",
+  description:
+    "Showcase and storage for easily reusable components which I plan on using in the future",
 };
 
 export default function RootLayout({
@@ -20,6 +22,7 @@ export default function RootLayout({
       <body className={manrope.className}>
         <div className="mx-autto my-auto w-screen h-screen bg-black">
           {children}
+          <Toaster position="bottom-center" />
         </div>
       </body>
     </html>

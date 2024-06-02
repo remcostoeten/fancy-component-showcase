@@ -1,3 +1,6 @@
+"use client";
+
+import React from "react";
 import { FaBeer, FaCoffee, FaApple } from "react-icons/fa";
 import HoverCard from "./HoverCard";
 
@@ -30,10 +33,17 @@ const copyToClipboard = (text: string) => {
   alert("Code copied to clipboard!");
 };
 
-export default function CardsPage() {
+const CardsPage: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 p-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <HoverCard
+          title="Card with Beer Icon"
+          paragraph="This card has a beer icon."
+          icon={<FaBeer />}
+          bgColor="#000"
+          hoverColor="#b2ebf2"
+        />
         {cardVariants.map((variant, index) => (
           <div key={index} className="relative">
             <HoverCard
@@ -72,4 +82,6 @@ export default Example;
       </div>
     </div>
   );
-}
+};
+
+export default CardsPage;

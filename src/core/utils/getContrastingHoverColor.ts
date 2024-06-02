@@ -1,7 +1,7 @@
-export function hexToRgb(hex: string): { r: number, g: number, b: number } {
+export function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const r = parseInt(hex.slice(1, 3), 16),
-        g = parseInt(hex.slice(3, 5), 16),
-        b = parseInt(hex.slice(5, 7), 16);
+    g = parseInt(hex.slice(3, 5), 16),
+    b = parseInt(hex.slice(5, 7), 16);
 
   return { r, g, b };
 }
@@ -11,8 +11,11 @@ export function hexToRgb(hex: string): { r: number, g: number, b: number } {
  * @param rgb The RGB color object.
  * @returns A hex color string.
  */
-export function rgbToHex(rgb: { r: number, g: number, b: number }): string {
-  return "#" + ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1);
+export function rgbToHex(rgb: { r: number; g: number; b: number }): string {
+  return (
+    "#" +
+    ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b).toString(16).slice(1)
+  );
 }
 
 /**
@@ -21,11 +24,14 @@ export function rgbToHex(rgb: { r: number, g: number, b: number }): string {
  * @param percent The percentage by which to lighten the color.
  * @returns The lightened RGB color.
  */
-export function lightenColor(color: { r: number, g: number, b: number }, percent: number): { r: number, g: number, b: number } {
+export function lightenColor(
+  color: { r: number; g: number; b: number },
+  percent: number,
+): { r: number; g: number; b: number } {
   return {
-    r: Math.min(255, color.r + (255 - color.r) * percent / 100),
-    g: Math.min(255, color.g + (255 - color.g) * percent / 100),
-    b: Math.min(255, color.b + (255 - color.b) * percent / 100),
+    r: Math.min(255, color.r + ((255 - color.r) * percent) / 100),
+    g: Math.min(255, color.g + ((255 - color.g) * percent) / 100),
+    b: Math.min(255, color.b + ((255 - color.b) * percent) / 100),
   };
 }
 
@@ -35,11 +41,14 @@ export function lightenColor(color: { r: number, g: number, b: number }, percent
  * @param percent The percentage by which to darken the color.
  * @returns The darkened RGB color.
  */
-export function darkenColor(color: { r: number, g: number, b: number }, percent: number): { r: number, g: number, b: number } {
+export function darkenColor(
+  color: { r: number; g: number; b: number },
+  percent: number,
+): { r: number; g: number; b: number } {
   return {
-    r: Math.max(0, color.r - color.r * percent / 100),
-    g: Math.max(0, color.g - color.g * percent / 100),
-    b: Math.max(0, color.b - color.b * percent / 100),
+    r: Math.max(0, color.r - (color.r * percent) / 100),
+    g: Math.max(0, color.g - (color.g * percent) / 100),
+    b: Math.max(0, color.b - (color.b * percent) / 100),
   };
 }
 
@@ -48,7 +57,11 @@ export function darkenColor(color: { r: number, g: number, b: number }, percent:
  * @param color The RGB color object.
  * @returns The luminance value.
  */
-export function calculateLuminance(color: { r: number, g: number, b: number }): number {
+export function calculateLuminance(color: {
+  r: number;
+  g: number;
+  b: number;
+}): number {
   return 0.299 * color.r + 0.587 * color.g + 0.114 * color.b;
 }
 

@@ -50,7 +50,6 @@ export default function HoverCard({
     if (card) {
       card.addEventListener("mousemove", handleOnMouseMove);
 
-      // Create a style element
       const style = document.createElement("style");
       style.innerHTML = `
         .card::before {
