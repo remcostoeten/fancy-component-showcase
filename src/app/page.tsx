@@ -1,6 +1,6 @@
 import React from "react";
-import HoverCard from "../components/HoverCard";
 import { FaBeer, FaCoffee, FaApple } from "react-icons/fa";
+import HoverCard from "./HoverCard";
 
 const cardVariants = [
   {
