@@ -1,8 +1,23 @@
-"use client";
+"use client ";
 
-import React, { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
 
-export default function HoverCard({ children, className, ...props }: { children: React.ReactNode, className?: string }) {
+interface HoverCardProps {
+  children: React.ReactNode;
+  width?: string | number;
+  height?: string | number;
+  padding?: string | number;
+  className?: string;
+}
+
+export default function HoverCard({
+  children,
+  width = "w-full",
+  height = "200px",
+  padding = "20px",
+  className = "",
+  ...props
+}: HoverCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const handleOnMouseMove = (e: MouseEvent) => {
@@ -54,12 +69,19 @@ export default function HoverCard({ children, className, ...props }: { children:
     }
   }, []);
 
+  const style = {
+    width,
+    height,
+    padding,
+  };
+
   return (
     <div
       ref={cardRef}
-      className={`card cursor-pointer bg-opacity-5 border border-opacity-10 rounded-lg relative ${className}`}
+      className={`card cursor-pointer bg-opacity-5 border border-opacity-10 rounded-lg grid place-items-center relative ${className}`}
+      style={style}
       {...props}
-      >
+    >
       {children}
     </div>
   );

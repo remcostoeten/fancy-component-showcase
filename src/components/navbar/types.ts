@@ -1,4 +1,4 @@
-export type NavbarProps {
+export interface NavbarProps {
   theme?: string;
   customColors?: {
     borderColor?: string;
@@ -6,17 +6,14 @@ export type NavbarProps {
   };
 }
 
-export type Position {
+export interface Position {
   left: number;
   width: number;
   opacity: number;
 }
 
-export type TabProps {
+export interface TabProps {
   children: React.ReactNode;
   setPosition: React.Dispatch<React.SetStateAction<Position>>;
+  isActive: boolean;
 }
-
-export type CursorProps = {
-  position: Position;
-};

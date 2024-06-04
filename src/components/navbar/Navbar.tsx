@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -17,8 +17,8 @@ const Navbar = ({ theme = "light", customColors }: NavbarProps) => {
     opacity: 0,
   });
 
-  const borderColor = customColors?.borderColor || "black";
-  const bgColor = customColors?.bgColor || "white";
+  const borderColor = customColors?.borderColor || "border-black";
+  const bgColor = customColors?.bgColor || "bg-white";
 
   return (
     <ul
@@ -28,13 +28,7 @@ const Navbar = ({ theme = "light", customColors }: NavbarProps) => {
           opacity: 0,
         }));
       }}
-      className={
-        "relative my-10 mx-auto flex w-fit rounded-full p-1 border-2 " + theme
-      }
-      style={{
-        borderColor: borderColor,
-        backgroundColor: bgColor,
-      }}
+      className={`relative my-10 mx-auto flex w-fit rounded-full p-1 border-2 ${borderColor} ${bgColor} ${theme}`}
     >
       {menuItems.map((item, index) => (
         <Tab
@@ -44,9 +38,7 @@ const Navbar = ({ theme = "light", customColors }: NavbarProps) => {
         >
           <Link
             href={item.link}
-            className={`${
-              pathname === item.link ? "text-neutral-400" : ""
-            }`}
+            className={`${pathname === item.link ? "text-neutral-400" : ""}`}
           >
             {item.name}
           </Link>

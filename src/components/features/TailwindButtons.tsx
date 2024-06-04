@@ -2,7 +2,7 @@
 
 import reactElementToJSXString from "react-element-to-jsx-string";
 import { toast } from "sonner";
-import { ButtonShells } from "./shells/ButtonShells";
+import { ButtonShells } from "../shells/ButtonShells";
 
 export function TailwindcssButtons() {
   const copy = (button: any) => {

@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "../styles/app.css";
 import { ReactNode } from "react";
-import { Toaster } from "sonner";
 import Navbar from "@/components/navbar/Navbar";
-import GridPatternDashed from "@/components/theme/GridBackground";
+import ProviderWrapper from "@/core/ProviderWrapper";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -21,16 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={manrope.className}>
-        <div className="mx-auto my-auto w-screen h-screen ">
-          <div className="flex flex-col max-w-[1200px] mx-auto p-4">
-            <Navbar />
-            {children}
+      <ProviderWrapper>
+        <body className={manrope.className}>
+          <div className="mx-auto my-auto w-screen h-screen ">
+            <div className="flex flex-col max-w-[1200px] mx-auto p-4">
+              <Navbar />
+              {children}
+            </div>
+            {/* <GridPatternDashed/> */}
           </div>
-          <GridPatternDashed/>
-          <Toaster position="bottom-center" />
-        </div>
-      </body>
+        </body>
+      </ProviderWrapper>
     </html>
   );
 }

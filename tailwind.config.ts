@@ -19,6 +19,9 @@ const config = {
     },
     extend: {
       colors: {
+        "main-gray": "#232323",
+        "gray-accent": "#2E2E2E",
+        "gray-stroke": "#3E3E3E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -52,6 +55,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      // backgroundColor: {
+      //   "main-gray": "#232323",
+      //   "gray-accent": "#2E2E2E",
+      //   "gray-stroke": "#3E3E3E",
+      // },
+      borderColor: {
+        "gray-stroke": "#3E3E3E",
       },
       borderRadius: {
         lg: "var(--radius)",

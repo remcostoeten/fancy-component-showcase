@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/core/utils/utils";
+import { cn } from "@/core/helpers/utils";
 import GridPattern from "./_grid-pattern";
 
 const GridPatternDashed = () => {
