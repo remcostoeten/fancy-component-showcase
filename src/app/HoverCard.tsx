@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
-export default function HoverCard({ children, className }: { children: React.ReactNode, className?: string }) {
+export default function HoverCard({ children, className, ...props }: { children: React.ReactNode, className?: string }) {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const handleOnMouseMove = (e: MouseEvent) => {
@@ -20,7 +20,6 @@ export default function HoverCard({ children, className }: { children: React.Rea
     if (card) {
       card.addEventListener("mousemove", handleOnMouseMove);
 
-      // Create a style element
       const style = document.createElement("style");
       style.innerHTML = `
         .card::before {
@@ -59,6 +58,7 @@ export default function HoverCard({ children, className }: { children: React.Rea
     <div
       ref={cardRef}
       className={`card cursor-pointer bg-opacity-5 border border-opacity-10 rounded-lg relative ${className}`}
+      {...props}
       >
       {children}
     </div>

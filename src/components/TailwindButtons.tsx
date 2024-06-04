@@ -20,6 +20,7 @@ export function TailwindcssButtons() {
   };
 
   const copyToClipboard = (text: string) => {
+    console.log("Copying to clipboard:", text);
     navigator.clipboard
       .writeText(text)
       .then(() => {
