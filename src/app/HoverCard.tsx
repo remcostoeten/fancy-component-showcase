@@ -13,7 +13,7 @@ interface HoverCardProps {
 export default function HoverCard({
   children,
   width = "w-full",
-  height = "200px",
+  height = "auto",
   padding = "20px",
   className = "",
   ...props
