@@ -12,8 +12,8 @@ export const menuItems = [
     link: "/hover-card",
   },
   {
-    name: "Grid Card",
-    link: "/grid-card",
+    name: "Fonts",
+    link: "/fonts-showcase",
   },
   {
     name: "Gooey Button",

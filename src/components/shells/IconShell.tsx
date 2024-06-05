@@ -10,7 +10,7 @@ type IconShellProps = {
 
 export default function IconShell({
   children,
-  bg = "bg-gray-accent",
+  bg = "bg-grey-accent",
   border = "text-foreground-light",
   className,
   showShadow = true,
@@ -18,7 +18,7 @@ export default function IconShell({
 }: IconShellProps) {
   return (
     <div
-      className={`${className} {rounded ${bg} ${border} p-1.5 ${showShadow ? "shadow-sm" : ""}`}
+      className={`${className} rounded ${bg} ${border} p-1.5 ${showShadow ? "shadow-sm" : ""}`}
       {...props}
     >
       {children}

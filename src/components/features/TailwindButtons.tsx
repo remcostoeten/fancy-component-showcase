@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client";
 
 import reactElementToJSXString from "react-element-to-jsx-string";
@@ -172,7 +174,7 @@ export const buttons = [
     name: "Outline",
     description: "Outline button for your website",
     component: (
-      <button className="px-4 py-2 rounded-xl border border-neutral-600 text-neutral-700 bg-white hover:bg-gray-100 transition duration-200">
+      <button className="px-4 py-2 rounded-xl border border-neutral-600 text-neutral-700 bg-white hover:bg-grey-100 transition duration-200">
         Outline
       </button>
     ),

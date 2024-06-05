@@ -5,6 +5,8 @@ import { FaBeer, FaCoffee, FaApple } from "react-icons/fa";
 import HoverCard from "./HoverCard";
 import { useCopyToClipboard } from "@/core/helpers/copyToClipboard";
 import { AuthenticationIcon, ExternalLinkIcon } from "@/components/icons";
+import InfoLabel from "@/components/shells/InfoLabel";
+import IconShell from "@/components/shells/IconShell";
 
 const cardVariants = [
   {
@@ -72,10 +74,9 @@ function CardContent() {
   return (
     <div className="px-6 py-4 flex flex-col space-y-4 md:px-3">
       <div className="flex items-center space-x-3">
-        <div className="rounded  bg-gray-accent p-1.5 text-foreground-light shadow-sm">
+        <IconShell>
           <AuthenticationIcon />
-        </div>
-
+        </IconShell>
         <h5>Authentication</h5>
       </div>
       <div className="flex flex-grow md:min-h-[50px] xl:min-h-[75px]">
@@ -85,14 +86,8 @@ function CardContent() {
         </p>
       </div>
       <div className="flex items-center space-x-2">
-        <a
-          data-size="tiny"
-          type="button"
-          className="relative justify-center cursor-pointer inline-flex items-center space-x-2 text-center font-regular ease-out duration-200 rounded-md outline-none transition-all outline-0 focus-visible:outline-4 focus-visible:outline-offset-1 border text-foreground bg-button hover:bg-selection border-button hover:border-button-hover focus-visible:outline-brand-600 data-[state='open']:bg-selection data-[state='open']:outline-brand-600 data-[state='open']:border-button-hover shadow-sm text-xs px-2.5 py-1 h-[26px]"
-          href="/dashboard/project/vmaptligoptycqsqkami/auth/users"
-        >
-          <span className="truncate">Explore Auth</span>
-        </a>
+        {/* <InfoLabel>Explore auth</InfoLabel> */}
+        <InfoLabel icon={<AuthenticationIcon />}>Explore auth</InfoLabel>
         <a
           target="_blank"
           rel="noreferrer"

@@ -19,9 +19,10 @@ const config = {
     },
     extend: {
       colors: {
-        "main-gray": "#232323",
-        "gray-accent": "#2E2E2E",
-        "gray-stroke": "#3E3E3E",
+        "main-grey": "#232323",
+        "grey-accent": "#2E2E2E",
+        "grey-accent-hover": "#343434",
+        "grey-stroke": "#3E3E3E",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -56,13 +57,10 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      // backgroundColor: {
-      //   "main-gray": "#232323",
-      //   "gray-accent": "#2E2E2E",
-      //   "gray-stroke": "#3E3E3E",
-      // },
       borderColor: {
-        "gray-stroke": "#3E3E3E",
+        "grey-stroke": "#3E3E3E",
+        "grey-accent": "#505050",
+        "grey-accent-hover": "#343434",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -82,6 +80,16 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        "inter-ui": ["var(--font-inter-ui)", "sans-serif"],
+        "inter-display": ["var(--font-inter-display)", "sans-serif"],
+      },
+      textSizeAdjust: {
+        "100": "100%",
+      },
+      verticalAlign: {
+        baseline: "baseline",
       },
     },
   },
