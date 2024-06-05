@@ -1,38 +1,23 @@
-"use client";
+"use client ";
 
-import React, { useEffect, useRef } from "react";
+import { useRef, useEffect } from "react";
+
+interface HoverCardProps {
+  children: React.ReactNode;
+  width?: string | number;
+  height?: string | number;
+  padding?: string | number;
+  className?: string;
+}
 
 export default function HoverCard({
-  width = "300px",
-  height = "260px",
-  borderRadius = "10px",
-  bgColor = "rgba(255, 255, 255, 0.02)",
-  hoverColor = "rgba(255, 255, 255, 0.05)",
-  duration = "500ms",
-  padding = "16px",
-  flexDirection = "column",
-  title,
-  paragraph,
-  icon,
-  ctaText,
-  ctaLink,
-  isExternal,
-}: {
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-  bgColor?: string;
-  hoverColor?: string;
-  duration?: string;
-  padding?: string;
-  flexDirection?: "row" | "column";
-  title?: string;
-  paragraph?: string;
-  icon?: React.ReactNode;
-  ctaText?: string;
-  ctaLink?: string;
-  isExternal?: boolean;
-}) {
+  children,
+  width = "w-full",
+  height = "200px",
+  padding = "20px",
+  className = "",
+  ...props
+}: HoverCardProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
 
   const handleOnMouseMove = (e: MouseEvent) => {
@@ -50,7 +35,6 @@ export default function HoverCard({
     if (card) {
       card.addEventListener("mousemove", handleOnMouseMove);
 
-      // Create a style element
       const style = document.createElement("style");
       style.innerHTML = `
         .card::before {
@@ -76,42 +60,29 @@ export default function HoverCard({
         }
       `;
 
-      // Append the style element to the head
       document.head.appendChild(style);
 
-      // Clean up function
       return () => {
         card.removeEventListener("mousemove", handleOnMouseMove);
         document.head.removeChild(style);
       };
     }
-  }, []); // Empty dependency array means this effect runs once on mount and clean up on unmount
+  }, []);
+
+  const style = {
+    width,
+    height,
+    padding,
+  };
 
   return (
     <div
       ref={cardRef}
-      className="card cursor-pointer bg-opacity-5 border border-opacity-10 rounded-lg relative"
-      style={{
-        width,
-        height,
-        borderRadius,
-        backgroundColor: bgColor,
-        padding,
-        transitionDuration: duration,
-      }}
+      className={`card cursor-pointer bg-opacity-5 border border-opacity-10 rounded-lg grid place-items-center relative ${className}`}
+      style={style}
+      {...props}
     >
-      {icon && <div className="mr-2">{icon}</div>}
-      {title && <h2 className="text-xl font-bold">{title}</h2>}
-      {paragraph && <p className="mt-2">{paragraph}</p>}
-      {ctaText && ctaLink && (
-        <a
-          href={ctaLink}
-          target={isExternal ? "_blank" : "_self"}
-          className="mt-auto text-blue-500 hover:underline"
-        >
-          {ctaText}
-        </a>
-      )}
+      {children}
     </div>
   );
 }

@@ -17,7 +17,8 @@
   "scripts": {
     "dev": "next dev --turbo",
     "dev-regular": "next dev",
-    "build": "next build",
+    "build": "pnpm format &  next build",
+    "build-regular": "next build",
     "start": "next start",
     "lint": "next lint",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
@@ -27,26 +28,30 @@
     "push": "git add * ; cz ;git push"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.0.10",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.2.10",
+    "lucide-react": "^0.383.0",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-element-to-jsx-string": "^15.0.0",
     "react-icons": "^5.2.1",
-    "sonner": "^1.4.41"
+    "sonner": "^1.4.41",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@builder.io/react-hydration-overlay": "^0.0.8",
+    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "@commitlint/cz-commitlint": "^19.2.0",
-    "eslint-config-next": "14.2.3"
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/cz-commitlint"
-    }
+    "typescript": "^5"
   }
 }
